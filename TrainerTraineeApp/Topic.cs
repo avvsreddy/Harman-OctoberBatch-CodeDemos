@@ -1,0 +1,7 @@
+﻿namespace TrainerTraineeApp
+{
+    class Topic
+    {
+
+    }
+}
