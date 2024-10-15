@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             // Direct Method invocation
-            Greeting("Directly");
+            //Greeting("Directly");
             // 1. Method Signature with name
             // 2. type of the method - instance/static
             // 3. access specifier - 
@@ -23,6 +23,11 @@
             // 1. declare the delegate
             // 2. instantiate the delegate
             MyDelegate d1 = new MyDelegate(Greeting);
+            d1 += Hello;// subscription
+
+            d1 -= Greeting; // unsubscription
+            //d1 += Hi;
+            MyDelegate2 d2 = new MyDelegate2(Hi);
             // 3. initialize the delegate
             // 4. invoke the delegate
             //d1.Invoke("Indirectly");
@@ -35,6 +40,16 @@
         {
             Console.WriteLine($"Greeting: {text}");
         }
+
+        public static void Hello(string text)
+        {
+            Console.WriteLine($"Hello: {text}");
+        }
+
+        public static void Hi()
+        {
+            Console.WriteLine($"Hi: ");
+        }
     }
 
 
@@ -44,4 +59,5 @@
     //}
     // Delegate Declaration
     public delegate void MyDelegate(string msg);
+    public delegate void MyDelegate2();
 }
