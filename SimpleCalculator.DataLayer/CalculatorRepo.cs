@@ -6,6 +6,11 @@
         {
             try
             {
+                // open db connection
+                // write data 1
+                // read data
+                // update
+                // close
                 File.WriteAllText(@"d:\data\result.txt", result);
             }
             catch (Exception ex)
@@ -18,6 +23,10 @@
 
                 // 3. rethrow
                 throw exp;
+            }
+            finally
+            {
+                // close db connection
             }
 
         }
