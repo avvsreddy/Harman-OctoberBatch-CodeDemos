@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainerTraineeApp", "TrainerTraineeApp\TrainerTraineeApp.csproj", "{472896A2-D948-4490-BDA7-B858625E4AFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainerTraineeApp", "TrainerTraineeApp\TrainerTraineeApp.csproj", "{472896A2-D948-4490-BDA7-B858625E4AFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsDemo", "ExceptionsDemo\ExceptionsDemo.csproj", "{94C5176E-5DB5-46AE-B165-051B55982CC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionsDemo", "ExceptionsDemo\ExceptionsDemo.csproj", "{94C5176E-5DB5-46AE-B165-051B55982CC7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simple Calculator App", "Simple Calculator App", "{867CBC9E-1FFA-4BF1-83B1-2D74D5F72182}"
 EndProject
@@ -13,21 +13,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI Layer", "UI Layer", "{27
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Layer", "Business Layer", "{F0BDA80A-4299-4779-ACCD-12D25078D09F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator.BusinessLayer", "SimpleCalculator.BusinessLayer\SimpleCalculator.BusinessLayer.csproj", "{835586B3-A126-4C2D-9326-9D35D4591C76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalculator.BusinessLayer", "SimpleCalculator.BusinessLayer\SimpleCalculator.BusinessLayer.csproj", "{835586B3-A126-4C2D-9326-9D35D4591C76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Layer", "Data Layer", "{4931E3C2-2CD1-41EA-90E9-1B9F3E7CB3CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCalculator.DataLayer", "SimpleCalculator.DataLayer\SimpleCalculator.DataLayer.csproj", "{CB15B790-408C-4D83-ABBF-9BAE32BDAF65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCalculator.DataLayer", "SimpleCalculator.DataLayer\SimpleCalculator.DataLayer.csproj", "{CB15B790-408C-4D83-ABBF-9BAE32BDAF65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Delegates Demo", "Delegates Demo", "{0B43E9FA-916E-49FF-BF82-B399E83456D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesDemo1", "DelegatesDemo1\DelegatesDemo1.csproj", "{56160E5E-B35F-4991-982E-15AC1F4505DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesDemo1", "DelegatesDemo1\DelegatesDemo1.csproj", "{56160E5E-B35F-4991-982E-15AC1F4505DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesDemo2", "DelegatesDemo2\DelegatesDemo2.csproj", "{72753FCC-C242-41DD-B54E-812967ABF3F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesDemo2", "DelegatesDemo2\DelegatesDemo2.csproj", "{72753FCC-C242-41DD-B54E-812967ABF3F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesDemo3", "DelegatesDemo3\DelegatesDemo3.csproj", "{A9B3A9D9-EC9E-4EF6-8E54-F27C49EBA4D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesDemo3", "DelegatesDemo3\DelegatesDemo3.csproj", "{A9B3A9D9-EC9E-4EF6-8E54-F27C49EBA4D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesDemo4", "DelegatesDemo4\DelegatesDemo4.csproj", "{A9AB6772-CE69-4090-8725-36CC44F56663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesDemo4", "DelegatesDemo4\DelegatesDemo4.csproj", "{A9AB6772-CE69-4090-8725-36CC44F56663}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linq Demos", "Linq Demos", "{1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanguageEnhancements", "LanguageEnhancements\LanguageEnhancements.csproj", "{A5422C6E-0930-474E-BB2E-45500C6F94EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqDemo1", "LinqDemo1\LinqDemo1.csproj", "{756B043C-AD66-4FC4-9399-180862E99726}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqDemo2", "LinqDemo2\LinqDemo2.csproj", "{148AFAAB-F26C-4887-AE0C-535D6C8DE058}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqDemo3", "LinqDemo3\LinqDemo3.csproj", "{BDF1C624-5B69-4DBD-AF92-442072331C16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToXMLDemo", "LinqToXMLDemo\LinqToXMLDemo.csproj", "{B51D53DE-B1AD-42BA-B67D-4CCE64096B28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqToXmlDemo2", "LinqToXmlDemo2\LinqToXmlDemo2.csproj", "{9A3B6B88-27DC-4096-B0FA-2A0B27871FA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +81,30 @@ Global
 		{A9AB6772-CE69-4090-8725-36CC44F56663}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9AB6772-CE69-4090-8725-36CC44F56663}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9AB6772-CE69-4090-8725-36CC44F56663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5422C6E-0930-474E-BB2E-45500C6F94EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5422C6E-0930-474E-BB2E-45500C6F94EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5422C6E-0930-474E-BB2E-45500C6F94EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5422C6E-0930-474E-BB2E-45500C6F94EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756B043C-AD66-4FC4-9399-180862E99726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756B043C-AD66-4FC4-9399-180862E99726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756B043C-AD66-4FC4-9399-180862E99726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756B043C-AD66-4FC4-9399-180862E99726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148AFAAB-F26C-4887-AE0C-535D6C8DE058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{148AFAAB-F26C-4887-AE0C-535D6C8DE058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{148AFAAB-F26C-4887-AE0C-535D6C8DE058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{148AFAAB-F26C-4887-AE0C-535D6C8DE058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF1C624-5B69-4DBD-AF92-442072331C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF1C624-5B69-4DBD-AF92-442072331C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF1C624-5B69-4DBD-AF92-442072331C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF1C624-5B69-4DBD-AF92-442072331C16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51D53DE-B1AD-42BA-B67D-4CCE64096B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51D53DE-B1AD-42BA-B67D-4CCE64096B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51D53DE-B1AD-42BA-B67D-4CCE64096B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51D53DE-B1AD-42BA-B67D-4CCE64096B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A3B6B88-27DC-4096-B0FA-2A0B27871FA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A3B6B88-27DC-4096-B0FA-2A0B27871FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A3B6B88-27DC-4096-B0FA-2A0B27871FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A3B6B88-27DC-4096-B0FA-2A0B27871FA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +120,12 @@ Global
 		{72753FCC-C242-41DD-B54E-812967ABF3F7} = {0B43E9FA-916E-49FF-BF82-B399E83456D2}
 		{A9B3A9D9-EC9E-4EF6-8E54-F27C49EBA4D2} = {0B43E9FA-916E-49FF-BF82-B399E83456D2}
 		{A9AB6772-CE69-4090-8725-36CC44F56663} = {0B43E9FA-916E-49FF-BF82-B399E83456D2}
+		{A5422C6E-0930-474E-BB2E-45500C6F94EB} = {1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}
+		{756B043C-AD66-4FC4-9399-180862E99726} = {1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}
+		{148AFAAB-F26C-4887-AE0C-535D6C8DE058} = {1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}
+		{BDF1C624-5B69-4DBD-AF92-442072331C16} = {1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}
+		{B51D53DE-B1AD-42BA-B67D-4CCE64096B28} = {1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}
+		{9A3B6B88-27DC-4096-B0FA-2A0B27871FA3} = {1841CE03-2A81-4D4B-97A1-BDEEEFE75DE1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8AF4417-DA19-4E74-974D-B27FA6D9CC27}
