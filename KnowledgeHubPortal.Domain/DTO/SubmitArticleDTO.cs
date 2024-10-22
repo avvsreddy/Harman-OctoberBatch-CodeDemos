@@ -6,5 +6,6 @@
         public string ArticleUrl { get; set; }
         public string Description { get; set; }
         public int CategoryID { get; set; }
+        public string PostedBy { get; set; }
     }
 }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProductsCatelogApp.Entities.Product">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAQAAAAAAAAAAAAQCAAAAAAACAAAAAAABCAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ProductsCatelogApp.Entities.Category">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Arial" Size="10" />
+</ClassDiagram>

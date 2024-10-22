@@ -63,6 +63,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Layer", "Domain Laye
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeHubPortal.Domain", "KnowledgeHubPortal.Domain\KnowledgeHubPortal.Domain.csproj", "{5A676402-E1C8-4EB7-B83A-64657B209500}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Demos", "EF Demos", "{491C139D-1ECB-4F4B-AF76-FFB326FB7D4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductsCatelogApp", "ProductsCatelogApp\ProductsCatelogApp.csproj", "{AF310883-7E81-4AD4-817A-F72B6C72E66B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +145,10 @@ Global
 		{5A676402-E1C8-4EB7-B83A-64657B209500}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A676402-E1C8-4EB7-B83A-64657B209500}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A676402-E1C8-4EB7-B83A-64657B209500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF310883-7E81-4AD4-817A-F72B6C72E66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF310883-7E81-4AD4-817A-F72B6C72E66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF310883-7E81-4AD4-817A-F72B6C72E66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF310883-7E81-4AD4-817A-F72B6C72E66B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +177,7 @@ Global
 		{B87AE28E-DB21-4A8C-87F8-73CB6F1321AD} = {82626468-72F0-4ACD-9E23-65C9640CC4B1}
 		{E31434EB-DCBC-463D-93C5-DDEFD7B72D47} = {82626468-72F0-4ACD-9E23-65C9640CC4B1}
 		{5A676402-E1C8-4EB7-B83A-64657B209500} = {E31434EB-DCBC-463D-93C5-DDEFD7B72D47}
+		{AF310883-7E81-4AD4-817A-F72B6C72E66B} = {491C139D-1ECB-4F4B-AF76-FFB326FB7D4A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8AF4417-DA19-4E74-974D-B27FA6D9CC27}
