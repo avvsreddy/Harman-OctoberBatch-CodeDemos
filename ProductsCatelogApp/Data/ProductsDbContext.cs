@@ -19,10 +19,21 @@ namespace ProductsCatelogApp.Data
         }
 
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Person>().UseTphMappingStrategy();
+            //modelBuilder.Entity<Person>().UseTptMappingStrategy();
+            modelBuilder.Entity<Person>().UseTpcMappingStrategy();
+        }
 
         // Map the entities with tables
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Supplier> Suppliers { get; set; }
+
+        public DbSet<Person> People { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
     }
 }

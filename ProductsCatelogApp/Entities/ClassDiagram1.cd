@@ -3,19 +3,76 @@
   <Class Name="ProductsCatelogApp.Entities.Product">
     <Position X="1.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAQAAAAAAAAAAAAQCAAAAAAACAAAAAAABCAA=</HashCode>
+      <HashCode>EAAAAAAAAQAAAIAAAAAAAAQCAAAAAAACAAAAAAABCAA=</HashCode>
       <FileName>Entities\Product.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Category" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Suppliers" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="ProductsCatelogApp.Entities.Category">
     <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Entities\Product.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ProductsCatelogApp.Entities.Supplier">
+    <Position X="1.5" Y="3.5" Width="1.5" />
+    <InheritanceLine Type="ProductsCatelogApp.Entities.Person" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="3.909" />
+        <Point X="3" Y="3.909" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECAAAAAAAAAQQ=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ProductsCatelogApp.Entities.Address">
+    <Position X="1.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABIAAIAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProductsCatelogApp.Entities.Person">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAYAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProductsCatelogApp.Entities.Customer">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="ProductsCatelogApp.Entities.Person" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.5" Y="4.382" />
+        <Point X="5.5" Y="5.626" />
+        <Point X="5.5" Y="5.626" />
+        <Point X="5.5" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAAAA=</HashCode>
+      <FileName>Entities\Product.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Address" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Arial" Size="10" />
 </ClassDiagram>

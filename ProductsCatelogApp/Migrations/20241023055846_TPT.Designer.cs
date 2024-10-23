@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductsCatelogApp.Data;
 
@@ -11,9 +12,11 @@ using ProductsCatelogApp.Data;
 namespace ProductsCatelogApp.Migrations
 {
     [DbContext(typeof(ProductsDbContext))]
-    partial class ProductsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241023055846_TPT")]
+    partial class TPT
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,8 +27,6 @@ namespace ProductsCatelogApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.HasSequence("PersonSequence");
 
             modelBuilder.Entity("ProductSupplier", b =>
                 {
@@ -63,10 +64,9 @@ namespace ProductsCatelogApp.Migrations
                 {
                     b.Property<int>("PersonID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValueSql("NEXT VALUE FOR [PersonSequence]");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseSequence(b.Property<int>("PersonID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PersonID"));
 
                     b.Property<string>("EmailId")
                         .IsRequired()
@@ -80,11 +80,32 @@ namespace ProductsCatelogApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Person.Address#Address", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<string>("Area")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Location")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Pincode")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+                        });
+
                     b.HasKey("PersonID");
 
-                    b.ToTable((string)null);
+                    b.ToTable("People");
 
-                    b.UseTpcMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("ProductsCatelogApp.Entities.Product", b =>
@@ -128,27 +149,6 @@ namespace ProductsCatelogApp.Migrations
                     b.Property<int>("Discount")
                         .HasColumnType("int");
 
-                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Customer.Address#Address", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Area")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Location")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Pincode")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-                        });
-
                     b.ToTable("Customers");
                 });
 
@@ -162,27 +162,6 @@ namespace ProductsCatelogApp.Migrations
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
-
-                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Supplier.Address#Address", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Area")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Location")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Pincode")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-                        });
 
                     b.ToTable("Suppliers");
                 });
@@ -211,6 +190,24 @@ namespace ProductsCatelogApp.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ProductsCatelogApp.Entities.Customer", b =>
+                {
+                    b.HasOne("ProductsCatelogApp.Entities.Person", null)
+                        .WithOne()
+                        .HasForeignKey("ProductsCatelogApp.Entities.Customer", "PersonID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("ProductsCatelogApp.Entities.Supplier", b =>
+                {
+                    b.HasOne("ProductsCatelogApp.Entities.Person", null)
+                        .WithOne()
+                        .HasForeignKey("ProductsCatelogApp.Entities.Supplier", "PersonID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("ProductsCatelogApp.Entities.Category", b =>

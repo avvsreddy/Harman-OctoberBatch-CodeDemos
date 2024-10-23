@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductsCatelogApp.Data;
 
@@ -11,9 +12,11 @@ using ProductsCatelogApp.Data;
 namespace ProductsCatelogApp.Migrations
 {
     [DbContext(typeof(ProductsDbContext))]
-    partial class ProductsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241023060133_TPC")]
+    partial class TPC
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,6 +83,27 @@ namespace ProductsCatelogApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Person.Address#Address", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<string>("Area")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Location")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Pincode")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+                        });
+
                     b.HasKey("PersonID");
 
                     b.ToTable((string)null);
@@ -128,27 +152,6 @@ namespace ProductsCatelogApp.Migrations
                     b.Property<int>("Discount")
                         .HasColumnType("int");
 
-                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Customer.Address#Address", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Area")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Location")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Pincode")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-                        });
-
                     b.ToTable("Customers");
                 });
 
@@ -162,27 +165,6 @@ namespace ProductsCatelogApp.Migrations
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
-
-                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Supplier.Address#Address", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Area")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Location")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Pincode")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-                        });
 
                     b.ToTable("Suppliers");
                 });

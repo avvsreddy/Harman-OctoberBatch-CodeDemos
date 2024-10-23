@@ -9,14 +9,21 @@ namespace ProductsCatelogApp
         {
             using (ProductsDbContext db = new ProductsDbContext())
             {
-                // get all products with categories and display
-                var allProducts = from p in db.Products//.Include(p => p.Category)
-                                  select p;
+                // add one customer and one supplier
 
-                foreach (var item in allProducts)
-                {
-                    Console.WriteLine(item.Name + "\t" + item.Category.CategoryName);
-                }
+                //var s = new Supplier { Name = "supplier 1", EmailId = "sup1@mail.com", GST = "ADF34234", Rating = 3, Mobile = "3445345345", Address = new Address { Area = "sup area", City = "city1", Location = "loc1", Pincode = "34234" } };
+
+
+                //var c = new Customer { Name = "customer 1", EmailId = "cust1@mail.com", Mobile = "342342387686", Address = new Address { Area = "cust area", City = "city2", Location = "loc2", Pincode = "4534234" } };
+
+                //db.People.Add(c);
+                //db.People.Add(s);
+
+                //db.SaveChanges();
+
+                var customers = db.Customers.ToList();
+
+
             }
         }
 

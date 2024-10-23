@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductsCatelogApp.Data;
 
@@ -11,9 +12,11 @@ using ProductsCatelogApp.Data;
 namespace ProductsCatelogApp.Migrations
 {
     [DbContext(typeof(ProductsDbContext))]
-    partial class ProductsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241023045058_ComplexType")]
+    partial class ComplexType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,19 +28,17 @@ namespace ProductsCatelogApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.HasSequence("PersonSequence");
-
             modelBuilder.Entity("ProductSupplier", b =>
                 {
                     b.Property<int>("ProductsProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SuppliersPersonID")
+                    b.Property<int>("SuppliersSupplierID")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductsProductId", "SuppliersPersonID");
+                    b.HasKey("ProductsProductId", "SuppliersSupplierID");
 
-                    b.HasIndex("SuppliersPersonID");
+                    b.HasIndex("SuppliersSupplierID");
 
                     b.ToTable("ProductSupplier");
                 });
@@ -57,34 +58,6 @@ namespace ProductsCatelogApp.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("ProductsCatelogApp.Entities.Person", b =>
-                {
-                    b.Property<int>("PersonID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValueSql("NEXT VALUE FOR [PersonSequence]");
-
-                    SqlServerPropertyBuilderExtensions.UseSequence(b.Property<int>("PersonID"));
-
-                    b.Property<string>("EmailId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mobile")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PersonID");
-
-                    b.ToTable((string)null);
-
-                    b.UseTpcMappingStrategy();
                 });
 
             modelBuilder.Entity("ProductsCatelogApp.Entities.Product", b =>
@@ -121,47 +94,32 @@ namespace ProductsCatelogApp.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ProductsCatelogApp.Entities.Customer", b =>
-                {
-                    b.HasBaseType("ProductsCatelogApp.Entities.Person");
-
-                    b.Property<int>("Discount")
-                        .HasColumnType("int");
-
-                    b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Customer.Address#Address", b1 =>
-                        {
-                            b1.IsRequired();
-
-                            b1.Property<string>("Area")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("City")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Location")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-
-                            b1.Property<string>("Pincode")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)");
-                        });
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("ProductsCatelogApp.Entities.Supplier", b =>
                 {
-                    b.HasBaseType("ProductsCatelogApp.Entities.Person");
+                    b.Property<int>("SupplierID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SupplierID"));
+
+                    b.Property<string>("EmailId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GST")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Mobile")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Rating")
                         .HasColumnType("int");
+
+                    b.Property<string>("SupplierName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.ComplexProperty<Dictionary<string, object>>("Address", "ProductsCatelogApp.Entities.Supplier.Address#Address", b1 =>
                         {
@@ -184,6 +142,8 @@ namespace ProductsCatelogApp.Migrations
                                 .HasColumnType("nvarchar(max)");
                         });
 
+                    b.HasKey("SupplierID");
+
                     b.ToTable("Suppliers");
                 });
 
@@ -197,7 +157,7 @@ namespace ProductsCatelogApp.Migrations
 
                     b.HasOne("ProductsCatelogApp.Entities.Supplier", null)
                         .WithMany()
-                        .HasForeignKey("SuppliersPersonID")
+                        .HasForeignKey("SuppliersSupplierID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
