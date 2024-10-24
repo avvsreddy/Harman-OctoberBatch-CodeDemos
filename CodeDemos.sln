@@ -71,6 +71,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDbFirstDemo", "EFDbFirstD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnowledgeHubPortal.Data", "KnowledgeHubPortal.Data\KnowledgeHubPortal.Data.csproj", "{B2F98B5D-503F-4AD6-A80D-DA8EE1663057}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web API Demos", "Web API Demos", "{FB2A4504-74D5-4444-97D6-50E10F535314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoolProductsCatelogService", "CoolProductsCatelogService\CoolProductsCatelogService.csproj", "{829BDE1B-52EB-4F78-A9BD-15C93B457B5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -161,6 +165,10 @@ Global
 		{B2F98B5D-503F-4AD6-A80D-DA8EE1663057}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2F98B5D-503F-4AD6-A80D-DA8EE1663057}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2F98B5D-503F-4AD6-A80D-DA8EE1663057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{829BDE1B-52EB-4F78-A9BD-15C93B457B5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829BDE1B-52EB-4F78-A9BD-15C93B457B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829BDE1B-52EB-4F78-A9BD-15C93B457B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829BDE1B-52EB-4F78-A9BD-15C93B457B5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,6 +200,7 @@ Global
 		{AF310883-7E81-4AD4-817A-F72B6C72E66B} = {491C139D-1ECB-4F4B-AF76-FFB326FB7D4A}
 		{BE95652C-DE78-4627-9839-A501E7F0D841} = {491C139D-1ECB-4F4B-AF76-FFB326FB7D4A}
 		{B2F98B5D-503F-4AD6-A80D-DA8EE1663057} = {B87AE28E-DB21-4A8C-87F8-73CB6F1321AD}
+		{829BDE1B-52EB-4F78-A9BD-15C93B457B5F} = {FB2A4504-74D5-4444-97D6-50E10F535314}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C8AF4417-DA19-4E74-974D-B27FA6D9CC27}
