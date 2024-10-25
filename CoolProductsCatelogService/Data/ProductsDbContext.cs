@@ -6,7 +6,7 @@ namespace CoolProductsCatelogService.Data
     public class ProductsDbContext : DbContext
     {
         // db config
-        public ProductsDbContext(DbContextOptions options) : base(options)
+        public ProductsDbContext(DbContextOptions<ProductsDbContext> options) : base(options)
         {
         }
 

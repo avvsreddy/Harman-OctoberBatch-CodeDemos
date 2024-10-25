@@ -1,5 +1,7 @@
 
 using CoolProductsCatelogService.Data;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace CoolProductsCatelogService
@@ -12,6 +14,23 @@ namespace CoolProductsCatelogService
 
             // Add services to the container.
 
+            var allowAllClients = "allowAllClients";
+
+            //var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: allowAllClients,
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+
+                                  });
+            });
+
+
+
+
             // add dbcontext
 
             builder.Services.AddDbContext<ProductsDbContext>(options =>
@@ -19,13 +38,27 @@ namespace CoolProductsCatelogService
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"));
             });
 
+            builder.Services.AddDbContext<UserDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ConStr"));
+            });
 
-            builder.Services.AddControllers().AddXmlSerializerFormatters();
+            builder.Services.AddAuthorization();
+
+            builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+            .AddEntityFrameworkStores<UserDbContext>();
+
+
+            builder.Services.AddControllers().AddXmlSerializerFormatters().AddNewtonsoftJson();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+            builder.Services.AddOData();
+            builder.Services.AddOutputCache();
             var app = builder.Build();
+
+            app.MapIdentityApi<IdentityUser>();
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -34,12 +67,21 @@ namespace CoolProductsCatelogService
                 app.UseSwaggerUI();
             }
 
+            app.UseOutputCache();
             app.UseHttpsRedirection();
-
+            app.UseRouting();
             app.UseAuthorization();
+            app.UseCors(allowAllClients);
 
 
-            app.MapControllers();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.EnableDependencyInjection();
+                endpoints.Select().OrderBy().Filter().Expand().Count().MaxTop(10).SkipToken();
+                endpoints.MapControllers();
+            });
+
+            //app.MapControllers();
 
             app.Run();
         }

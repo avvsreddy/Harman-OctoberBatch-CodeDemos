@@ -1,11 +1,15 @@
 ﻿using CoolProductsCatelogService.Data;
 using CoolProductsCatelogService.Entities;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoolProductsCatelogService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CoolProductsController : ControllerBase
     {
         private readonly ProductsDbContext db;
@@ -22,13 +26,32 @@ namespace CoolProductsCatelogService.Controllers
 
         // step1: design a endpoint uri
 
+
+
+        //[HttpGet("cache")]
+        //[OutputCache]
+        //public string Get()
+        //{
+        //    return DateTime.Now.ToString();
+        //}
+
+
         // GET   .../api/coolproducts
         [HttpGet]
-        public List<Product> GetProducts()
+        //[Authorize]
+        public async Task<List<Product>> GetProductsAsync()
         {
-            return db.Products.ToList();
+            return await db.Products.ToListAsync();
         }
 
+
+        // GET .../api/coolproducts/odata
+        [HttpGet("odata")]
+        [EnableQuery]
+        public IQueryable<Product> GetProductsOdata()
+        {
+            return db.Products.AsQueryable();
+        }
 
         // get product by id
         // design the uri
@@ -39,9 +62,11 @@ namespace CoolProductsCatelogService.Controllers
         //[Route("{id}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetProduct(int id)
+        //[EnableCors(PolicyName = "allowAllClients")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetProductAsync(int id)
         {
-            var p = db.Products.Find(id);
+            var p = await db.Products.FindAsync(id);
             if (p == null) // not found
             {
                 // 404
@@ -56,9 +81,13 @@ namespace CoolProductsCatelogService.Controllers
         [HttpGet("brand/{brand:alpha}")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetProductsByBrand(string brand)
+
+
+        //[OutputCache(Duration = 60)]
+        //[EnableCors(PolicyName = "policy2")]
+        public async Task<IActionResult> GetProductsByBrandAsync(string brand)
         {
-            var products = db.Products.Where(p => p.Brand == brand).ToList();
+            var products = await db.Products.Where(p => p.Brand == brand).ToListAsync();
             if (products.Count == 0)
             {
                 return NotFound("No products found");
@@ -71,9 +100,9 @@ namespace CoolProductsCatelogService.Controllers
         [HttpGet("cheapest")]
         [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetCheapestProduct()
+        public async Task<IActionResult> GetCheapestProductAsync()
         {
-            var cheapestProduct = db.Products.OrderBy(p => p.Price).FirstOrDefault();
+            var cheapestProduct = await db.Products.OrderBy(p => p.Price).FirstOrDefaultAsync();
             if (cheapestProduct == null)
             {
                 return NotFound("No cheapest product found");
@@ -133,15 +162,15 @@ namespace CoolProductsCatelogService.Controllers
         // DELETE .../api/products/{id}
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteById(int id)
+        public async Task<IActionResult> DeleteByIdAsync(int id)
         {
-            var productToDel = db.Products.Find(id);
+            var productToDel = await db.Products.FindAsync(id);
             if (productToDel == null)
             {
                 return NotFound("Product not found for delete");
             }
             db.Products.Remove(productToDel);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return Ok();
         }
 
@@ -149,7 +178,7 @@ namespace CoolProductsCatelogService.Controllers
         // PUT .../api/products
 
         [HttpPut]
-        public IActionResult EditProduct(Product p)
+        public async Task<IActionResult> EditProductAsync(Product p)
         {
             // do validatation
             if (!ModelState.IsValid)
@@ -157,7 +186,7 @@ namespace CoolProductsCatelogService.Controllers
                 return BadRequest("Invalid input");
             }
             db.Products.Update(p);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return Ok();
         }
     }

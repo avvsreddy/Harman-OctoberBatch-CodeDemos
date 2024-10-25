@@ -6,5 +6,9 @@ namespace KnowledgeHubPortal.Domain.Repositories
     {
         void Create(Category category);
         List<Category> GetAll();
+
+
+        Task CreateAsync(Category category);
+        Task<List<Category>> GetAllAsync();
     }
 }
