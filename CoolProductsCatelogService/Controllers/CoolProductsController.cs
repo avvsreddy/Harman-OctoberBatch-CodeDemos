@@ -28,12 +28,15 @@ namespace CoolProductsCatelogService.Controllers
 
 
 
-        //[HttpGet("cache")]
+        [HttpGet("cache")]
         //[OutputCache]
-        //public string Get()
-        //{
-        //    return DateTime.Now.ToString();
-        //}
+        [ResponseCache(Duration = 30)]
+        [AllowAnonymous]
+        public List<Product> Get()
+        {
+            //return DateTime.Now.ToString();
+            return db.Products.ToList();
+        }
 
 
         // GET   .../api/coolproducts

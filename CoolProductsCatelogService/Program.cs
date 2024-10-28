@@ -54,7 +54,9 @@ namespace CoolProductsCatelogService
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddOData();
-            builder.Services.AddOutputCache();
+            //builder.Services.AddOutputCache();
+            builder.Services.AddResponseCaching();
+
             var app = builder.Build();
 
             app.MapIdentityApi<IdentityUser>();
@@ -67,7 +69,8 @@ namespace CoolProductsCatelogService
                 app.UseSwaggerUI();
             }
 
-            app.UseOutputCache();
+            //app.UseOutputCache();
+            app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
