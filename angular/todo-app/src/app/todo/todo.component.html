@@ -1,0 +1,17 @@
+<div class="container">
+
+<input type="text" 
+placeholder="What do you want to do?" 
+[(ngModel)]="todoItem">
+
+<button (click)="addItem()">Add</button>
+
+</div>
+<hr>
+
+<ol>
+@for (item of todoItems; track $index;let i = $index) 
+{
+    <li>{{item}} <button (click)="removeItem(i)">Delete</button></li>
+}
+</ol>

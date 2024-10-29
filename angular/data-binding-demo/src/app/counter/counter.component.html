@@ -1,0 +1,10 @@
+<p>Counter Demo</p>
+<hr>
+
+<div class="card small" style="background-color: #f0f0f0;">
+    <div class="card-body">
+        <h1 class="card-title">{{count}}</h1>
+        <button class="btn btn-primary" (click)="onIncrease()" [disabled]=!isIncrease>+</button>
+        <button class="btn btn-primary" (click)="onDecrease()" [disabled]=!isDecrease>-</button>
+    </div>
+</div>

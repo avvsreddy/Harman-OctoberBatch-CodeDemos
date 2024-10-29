@@ -1,0 +1,61 @@
+<h1>Product Information</h1>
+<hr>
+<!--  foreach(var p in products) -->
+<!-- <div class="m-5" *ngFor="let p of products">
+
+    ID: {{p.id}}<br>
+    Name: {{p.name}}<br>
+    Price: {{p.price}}<br>
+    Is Available: {{p.inStock}}
+    
+</div> -->
+
+<!-- <div class="container">
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <th scope="col">ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Is Available</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <th scope="row">{{p.id}}</th>
+            <td>{{p.name}}</td>
+            <td>{{p.price | currency: 'INR'}}</td>
+            <td>{{p.inStock ? 'Yes' : 'No'}}</td>
+        </tr>
+    </tbody>
+</table>
+</div> -->
+<!-- <div class="row">
+    <div class="col-md-6 m-5" *ngFor="let p of products; let i = index">
+        <div class="card" style="background-color: #f0f0f0;"> 
+            <div class="card-body">
+                <h5 class="card-title">ID: {{p.id}}</h5>
+                <p class="card-text">Name: {{p.name}}</p>
+                <p class="card-text">Price: {{p.price | currency: 'INR'}}</p>
+                <p class="card-text">Is Available: {{p.inStock ? 'Yes' : 'No'}}</p>
+                <button [disabled]="!p.inStock" class="btn btn-primary">Buy</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+@for (p of products; track $index) 
+{
+<div class="m-5">
+
+    ID: {{p.id}}<br>
+    Name: {{p.name}}<br>
+    Price: {{p.price}}<br>
+    <span [class.greenBg]="p.inStock">IsAvailable {{p.inStock}}</span>
+    
+    <!-- @if(!p.inStock){
+    <span style="background-color: red;"> Is Available: {{p.inStock}}</span>
+    }@else {
+        <span style="background-color: rgb(0, 255, 51);"> Is Available: {{p.inStock}}</span>
+    } -->
+    
+</div>
+}
