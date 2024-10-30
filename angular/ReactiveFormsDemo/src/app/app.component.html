@@ -1,0 +1,41 @@
+<div class="container">
+  <h1 style="background-color: #f0f0f0;">Reactive Forms Demo</h1>
+<img src="path/to/your/image.png" alt="Image Description">
+
+
+<form [formGroup]="contactForm" style="width: 50%;" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input [class.is-invalid]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" type="text" class="form-control" id="name" placeholder="Enter your name" formControlName="name">
+@if(contactForm.get('name')?.invalid && contactForm.get('name')?.touched){
+<small class="text-danger">Please enter name</small>
+}
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" formControlName="email">
+    </div>
+    <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input type="text" class="form-control" id="mobile" placeholder="Enter your mobile number" formControlName="mobile" >
+    </div>
+    <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" formControlName="gender" >
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" class="form-control" id="location" placeholder="Enter your location" formControlName="location">
+    </div>
+    <div class="mb-3">
+        <label for="dob" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" id="dob" formControlName="dob">
+    </div>
+    <button  [disabled]="contactForm.invalid"  type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

@@ -1,0 +1,75 @@
+<h1>Create Contact Form</h1>
+<hr>
+<!-- {{contact | json}} -->
+
+<div class="container">
+<form #contactForm="ngForm"  class="needs-validation" novalidate style="width: 50%;" (ngSubmit)="onFormSubmit()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input [class.is-invalid]="name.invalid && name.touched" #name="ngModel" type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required [(ngModel)]="contact.name">
+        @if(name.invalid && name.touched)
+        {
+        <div class="alert alert-danger" role="alert">
+            Please enter your name.
+        </div>
+        }
+
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required email [(ngModel)]="contact.email">
+       
+        @if(email.invalid && name.touched){
+        <div class="alert alert-danger" role="alert"  >
+            Please enter a valid email.
+        </div>
+        }
+
+    </div>
+    <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input #mobile="ngModel" type="text" class="form-control" id="mobile" name="mobile" placeholder="Enter your mobile number" required
+        [(ngModel)]="contact.mobile">
+        @if(mobile.invalid && name.touched){
+        <div class="alert alert-danger" role="alert" >
+            Please enter your mobile number.
+        </div>}
+    </div>
+    <div class="mb-3">
+        <label for="dob" class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" id="dob" name="dob"
+        [(ngModel)]="contact.dob">
+        <!-- <div class="alert alert-danger" role="alert" >
+            Please enter your date of birth.
+        </div> -->
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input #location="ngModel" type="text" class="form-control" id="location" name="location" placeholder="Enter your location" required 
+        [(ngModel)]="contact.location">
+        @if(location.invalid && name.touched){
+        <div class="alert alert-danger" role="alert" >
+            Please enter your location.
+        </div>}
+    </div>
+    <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select #gender="ngModel" class="form-select" id="gender" name="gender" required [(ngModel)]="contact.gender">
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        @if(gender.invalid && name.touched){
+        <div class="alert alert-danger" role="alert" >
+            Please select your gender.
+        </div>}
+    </div>
+    <button [disabled]="contactForm.invalid"  type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+
+
+
+
