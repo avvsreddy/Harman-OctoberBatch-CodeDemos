@@ -9,7 +9,7 @@ namespace CoolProductsCatelogService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CoolProductsController : ControllerBase
     {
         private readonly ProductsDbContext db;
@@ -32,10 +32,10 @@ namespace CoolProductsCatelogService.Controllers
         //[OutputCache]
         [ResponseCache(Duration = 30)]
         [AllowAnonymous]
-        public List<Product> Get()
+        public async Task<List<Product>> Get()
         {
             //return DateTime.Now.ToString();
-            return db.Products.ToList();
+            return await db.Products.ToListAsync();
         }
 
 
@@ -152,7 +152,7 @@ namespace CoolProductsCatelogService.Controllers
             // do validatation
             if (!ModelState.IsValid)
             {
-                return BadRequest("Invalid input");
+                return BadRequest("Invalid input" + ModelState);
             }
             // save
             db.Products.Add(p);

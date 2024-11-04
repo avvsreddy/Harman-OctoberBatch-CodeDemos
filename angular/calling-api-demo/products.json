@@ -1,0 +1,94 @@
+{
+   "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "brand": "BrandA",
+      "price": 1200,
+      "inStock": true,
+      "country": "USA",
+      "category": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "brand": "BrandB",
+      "price": 800,
+      "inStock": true,
+      "country": "China",
+      "category": "Electronics"
+    },
+    {
+      "id": 3,
+      "name": "Headphones",
+      "brand": "BrandC",
+      "price": 150,
+      "inStock": true,
+      "country": "Germany",
+      "category": "Accessories"
+    },
+    {
+      "id": 4,
+      "name": "Coffee Maker",
+      "brand": "BrandD",
+      "price": 100,
+      "inStock": false,
+      "country": "Italy",
+      "category": "Home Appliances"
+    },
+    {
+      "id": 5,
+      "name": "Electric Toothbrush",
+      "brand": "BrandE",
+      "price": 60,
+      "inStock": true,
+      "country": "Japan",
+      "category": "Personal Care"
+    },
+    {
+      "id": 6,
+      "name": "Running Shoes",
+      "brand": "BrandF",
+      "price": 120,
+      "inStock": true,
+      "country": "Vietnam",
+      "category": "Footwear"
+    },
+    {
+      "id": 7,
+      "name": "Backpack",
+      "brand": "BrandG",
+      "price": 90,
+      "inStock": true,
+      "country": "India",
+      "category": "Accessories"
+    },
+    {
+      "id": 8,
+      "name": "Wristwatch",
+      "brand": "BrandH",
+      "price": 250,
+      "inStock": false,
+      "country": "Switzerland",
+      "category": "Accessories"
+    },
+    {
+      "id": 9,
+      "name": "Tablet",
+      "brand": "BrandI",
+      "price": 600,
+      "inStock": true,
+      "country": "South Korea",
+      "category": "Electronics"
+    },
+    {
+      "id": 10,
+      "name": "Blender",
+      "brand": "BrandJ",
+      "price": 800,
+      "inStock": true,
+      "country": "India",
+      "category": "Home Appliances"
+    }
+]
+}
